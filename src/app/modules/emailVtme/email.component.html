@@ -1,14 +1,13 @@
 <div class="container">
-
-
   <h1 id="titulo">Cole o texto</h1>
 
-  <textarea id="inputVtme" rows="10" cols="50" #inputText>
+  <textarea id="inputVtme" rows="10" cols="50" #inputText> </textarea>
 
-    </textarea>
-  <button (click)="addTexto(inputText.value)">Ajeitar</button>
+  <label class="input-label">
+    <span id="label-text">Ajeitar Texto: </span>
+    <button (click)="addTexto(inputText.value)" id="formata">
+      <img src="../../../assets/botoes/ajeitar.png" alt="Botão ajeitar" id="imgBotao" />
+    </button>
+  </label>
 
 </div>
-
-
-

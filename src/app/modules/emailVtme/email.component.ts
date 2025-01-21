@@ -38,13 +38,13 @@ export class EmailComponent {
     const regexVtme = /Nº VTME:\s*(\d+)/;
 
     // Regex para capturar o nome do consultor
-    const regexConsultor = /Consultor\s+([A-Za-z\s\-]+(?:\s+[A-Za-z\s\-]+)*)\s*-\s*\w+/;
+    const regexConsultor = /Consultor\s+([A-Za-z\s\-]+(?:\s+[A-Za-z\s\-]+)*)\s+-\s+[A-Za-z\s\-]+/;
 
     // Regex para capturar o tipo de cliente
     const regexTipoCliente = /Cliente\s+Novo\s*(\d+)\s*Aditivo\s*(\d+)\s*Portabilidades\s*\d*\s*Renegociação\s*(\d+)/;
 
-    // Regex para capturar o nome do cliente (após a segunda palavra "Cliente" e antes de "CNPJ")
-    const regexNomeCliente = /(?<=Cliente\s+)([\s\S]+?)(?=\s+CNPJ)/;
+    // Regex para capturar o nome do cliente (após a segunda ocorrência de "Cliente")
+    const regexNomeCliente = /(?:Cliente\s+){2}([A-Za-z\s\-\.]+(?:\s+[A-Za-z\s\-\.]+)*)\s*(?=CNPJ)/;
 
     // Regex para capturar o CNPJ
     const regexCnpj = /CNPJ\s+(\d{14})/;
@@ -88,6 +88,7 @@ export class EmailComponent {
         tipo: tipoCliente,  // Tipo de cliente (Novo, Aditivo ou Renegociação)
         cnpj: cnpjMatch ? cnpjMatch[1] : 'Não encontrado',  // CNPJ
     };
+
 }
 
 

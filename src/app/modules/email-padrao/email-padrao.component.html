@@ -1,16 +1,17 @@
-<div >
+<div class="email">
 
 
   <app-email (outputAddtexto)="handleTexto($event)"></app-email>
 
-  <div *ngIf="textoFormatado.length > 0">
+  <div *ngIf="textoFormatado.length > 0" class="main">
 
     <p *ngFor="let item of textoFormatado">
-      Consultor: {{ item.consultor }}<br>
-      Cliente: {{ item.cliente }}<br>
-      VTME: {{ item.vtme }}<br>
-      CNPJ: {{item.cnpj }}<br>
-      Tipo: {{ item.tipo }}<br>
+     <strong>Consultor:</strong>  {{ item.consultor }}<br>
+      <strong>Cliente:</strong> {{ item.cliente }}<br>
+      <strong>VTME:</strong> {{ item.vtme }}<br>
+      <strong>CNPJ:</strong> {{item.cnpj }}<br>
+      <strong>Tipo:</strong> {{ item.tipo }}<br>
+      <strong>Radar:</strong>
 
     </p>
   </div>
