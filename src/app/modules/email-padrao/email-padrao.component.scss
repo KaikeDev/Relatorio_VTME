@@ -8,4 +8,30 @@
     border: 2px solid black;
 
   }
+
+  #relatorio {
+    width: 100%;
+    border-collapse: collapse; /* Remove o espaçamento entre as células */
+    margin-top: 20px;
+  }
+
+  #relatorio th,
+  #relatorio td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd; /* Borda entre as células */
+  }
+
+  #relatorio tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alterna a cor das linhas para melhorar a leitura */
+  }
+
+  #relatorio th {
+    background-color: #4CAF50; /* Cor do cabeçalho */
+    color: white;
+  }
+
+  .planilha {
+    background-color: #f4f4f4;
+  }
 }
