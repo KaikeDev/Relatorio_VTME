@@ -3,6 +3,8 @@ export interface InterfaceEmailPadrao {
   cliente: string,
   vtme: string,
   cnpj: string,
-   tipo: string
+   tipo: string,
+   quantidade: number,
+   valor:number
 
 }

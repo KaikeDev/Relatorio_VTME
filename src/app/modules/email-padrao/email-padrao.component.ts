@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { InterfaceEmailPadrao } from '../../inteface/interface-email-padrao';
 import { EmailComponent } from '../emailVtme/email.component';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-email-padrao',
   standalone: true,
-  imports: [EmailComponent, CommonModule],
+  imports: [EmailComponent, CommonModule, HeaderComponent],
   templateUrl: './email-padrao.component.html',
   styleUrl: './email-padrao.component.scss'
 })

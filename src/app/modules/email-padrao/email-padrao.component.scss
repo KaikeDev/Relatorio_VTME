@@ -2,10 +2,15 @@
 
 :host{
   .main{
-    font-family: Roboto, "Helvetica Neue" ;
+    font-family: 'Helvetica';
     margin-left: 20px;
     margin-right: 495px;
     border: 2px solid black;
+    background-color: white;
+
+    p{
+      margin-left:50px
+  }
 
   }
 
@@ -31,6 +36,9 @@
     color: white;
   }
 
+  #relatorio tbody {
+      background-color: var(--blue);
+  }
   .planilha {
     background-color: #f4f4f4;
   }

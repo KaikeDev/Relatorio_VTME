@@ -49,12 +49,20 @@ export class EmailComponent {
     // Regex para capturar o CNPJ
     const regexCnpj = /CNPJ\s+(\d{14})/;
 
+    // Regex para capturar o "Valor Pedido"
+    const regexValorPedido = /Valor Pedido\s*R\$\s*([\d\.,]+)\s*Serviços Adicionais/;
+
+    // Regex para capturar a quantidade após os tipos de cliente
+    const regexQuantidade = /Cliente\s+Novo\s*\d+\s*Aditivo\s*\d+\s*Portabilidades\s*\d*\s*Renegociação\s*(\d+)/;
+
     // Match dos valores no texto
     const vtmeMatch = texto.match(regexVtme);
     const consultorMatch = texto.match(regexConsultor);
     const tipoClienteMatch = texto.match(regexTipoCliente);
     const nomeClienteMatch = texto.match(regexNomeCliente);
     const cnpjMatch = texto.match(regexCnpj);
+    const valorPedidoMatch = texto.match(regexValorPedido);
+    const quantidadeMatch = texto.match(regexQuantidade);
 
     // Debugging - Exibindo os resultados de cada captura
     console.log("Vtme Match: ", vtmeMatch);
@@ -62,6 +70,8 @@ export class EmailComponent {
     console.log("Tipo Cliente Match: ", tipoClienteMatch);
     console.log("Nome Cliente Match: ", nomeClienteMatch);
     console.log("CNPJ Match: ", cnpjMatch);
+    console.log("Valor Pedido Match: ", valorPedidoMatch);
+    console.log("Quantidade Match: ", quantidadeMatch);
 
     // Determinar o tipo de cliente com base nos números de Novo, Aditivo ou Renegociação
     let tipoCliente = 'Não encontrado';
@@ -80,6 +90,18 @@ export class EmailComponent {
         }
     }
 
+    // Valor do pedido e quantidade de acessos
+    let valorPedido = 0;
+    let quantidade = 0;
+
+    if (valorPedidoMatch) {
+        valorPedido = parseFloat(valorPedidoMatch[1].replace(',', '.'));
+    }
+
+    if (quantidadeMatch) {
+        quantidade = parseInt(quantidadeMatch[1]);
+    }
+
     // Retornando os dados extraídos
     return {
         vtme: vtmeMatch ? vtmeMatch[1] : 'Não encontrado',
@@ -87,8 +109,9 @@ export class EmailComponent {
         consultor: consultorMatch ? consultorMatch[1] : 'Não encontrado',  // Nome do consultor
         tipo: tipoCliente,  // Tipo de cliente (Novo, Aditivo ou Renegociação)
         cnpj: cnpjMatch ? cnpjMatch[1] : 'Não encontrado',  // CNPJ
+        quantidade: quantidade,  // Quantidade de acessos
+        valor: valorPedido  // Valor do pedido
     };
-
 }
 
 

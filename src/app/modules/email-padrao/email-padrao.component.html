@@ -1,3 +1,6 @@
+<app-header/>
+
+
 <div class="email">
   <app-email (outputAddtexto)="handleTexto($event)"></app-email>
 
@@ -9,6 +12,8 @@
       <strong>CNPJ:</strong> {{ item.cnpj }}<br />
       <strong>TIPO:</strong> {{ item.tipo }}<br />
       <strong>RADAR:</strong>
+
+
     </p>
   </div>
 </div>
@@ -21,8 +26,10 @@
         <tr class="planilha">
           <th>Nome</th>
           <th>Cnpj</th>
-          <th>Consultor</th>
+          <th>Valor</th>
+          <th>Quantidade</th>
           <th>Tipo</th>
+          <th>Consultor</th>
           <th>Vtme</th>
         </tr>
       </thead>
@@ -30,8 +37,10 @@
         <tr  *ngFor="let registro of textoFormatado">
           <td>{{ registro.cliente }}</td>
           <td>{{ registro.cnpj }}</td>
-          <td>{{ registro.consultor }}</td>
+          <td>{{registro.valor}}</td>
+          <td>{{registro.quantidade}}</td>
           <td>{{ registro.tipo }}</td>
+          <td>{{ registro.consultor }}</td>
           <td>{{ registro.vtme }}</td>
         </tr>
       </tbody>

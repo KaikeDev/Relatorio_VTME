@@ -1,0 +1,31 @@
+:host{
+
+  header {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    display: flex; /* Usa Flexbox */
+    justify-content: center; /* Alinha o conteúdo horizontalmente */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    position: relative; /* Permite o posicionamento relativo para a imagem */
+  }
+
+  header h1 {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1; /* Faz o título crescer e ocupar o máximo de espaço possível */
+  }
+
+  header button {
+    background: none;
+    border: none;
+    position: absolute; /* Posiciona o botão de forma absoluta */
+    right: 100px; /* Afasta o botão da borda direita */
+    height: auto;
+    cursor: pointer;
+  }
+
+  header button img {
+    height: 40px; /* Ajuste o tamanho da imagem conforme necessário */
+  }
+}
