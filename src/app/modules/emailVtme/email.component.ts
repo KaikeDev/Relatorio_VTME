@@ -53,7 +53,7 @@ export class EmailComponent {
     const regexValorPedido = /Valor Pedido\s*R\$\s*([\d\.,]+)\s*Serviços Adicionais/;
 
     // Regex para capturar a quantidade após os tipos de cliente
-    const regexQuantidade = /Cliente\s+Novo\s*\d+\s*Aditivo\s*\d+\s*Portabilidades\s*\d*\s*Renegociação\s*(\d+)/;
+    const regexQuantidade = /Novo\s*(\d+)\s*Aditivo\s*(\d+)\s*Portabilidades\s*(\d*)\s*Renegociação\s*(\d+)/;
 
     // Match dos valores no texto
     const vtmeMatch = texto.match(regexVtme);
