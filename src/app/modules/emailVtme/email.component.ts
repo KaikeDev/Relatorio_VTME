@@ -50,7 +50,7 @@ export class EmailComponent {
     const regexTipoCliente = /Cliente\s+Novo\s*(\d+)\s*Aditivo\s*(\d+)\s*Portabilidades\s*\d*\s*Renegociação\s*(\d+)/;
 
     // Regex para capturar o nome do cliente (após a segunda ocorrência de "Cliente")
-    const regexNomeCliente = /(?:Cliente\s+){2}([A-Za-z\s\-\.]+(?:\s+[A-Za-z\s\-\.]+)*)\s*(?=CNPJ)/;
+    const regexNomeCliente = /(?:Cliente\s+){2}([A-Za-z0-9\s\-\.]+(?:\s+[A-Za-z0-9\s\-\.]+)*)\s*(?=CNPJ)/;
 
     // Regex para capturar o CNPJ
     const regexCnpj = /CNPJ\s+(\d{14})/;
