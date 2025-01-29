@@ -26,17 +26,9 @@ export class EmailPadraoComponent {
 
     // Adiciona o novo objeto ao final da lista
     this.textoFormatado.push(event);
+    
 
    }
 
-
-   createReport(event: InterfaceEmailPadrao){
-    if (this.textoFormatado.length > 0) {
-      this.textoFormatado.pop();  // Remove o último item da lista
-    }
-
-    // Adiciona o novo objeto ao final da lista
-    this.textoFormatado.push(event);
-  }
 
 }

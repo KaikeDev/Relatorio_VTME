@@ -19,6 +19,9 @@ export class EmailComponent {
 
   @Output() public outputAddtexto = new EventEmitter<InterfaceEmailPadrao>();
 
+  public listVTME: Array<InterfaceEmailPadrao> =JSON.parse(localStorage.getItem('dadosCliente') || "[]");
+
+
   addTexto(value: string) {
     if (value) {
 
@@ -26,8 +29,11 @@ export class EmailComponent {
         // Extrai os dados do texto
         const dadosExtraidos = this.extrairDadosDoTexto(value);
 
+        this.adicionarNoLocalStorage(dadosExtraidos)
+
         // Emite o evento com os dados extraídos
         this.#cdr.detectChanges();
+
         this.outputAddtexto.emit(dadosExtraidos);
     }
   }
@@ -53,7 +59,8 @@ export class EmailComponent {
     const regexValorPedido = /Valor Pedido\s*R\$\s*([\d\.,]+)\s*Serviços Adicionais/;
 
     // Regex para capturar a quantidade após os tipos de cliente
-    const regexQuantidade = /Novo\s*(\d+)\s*Aditivo\s*(\d+)\s*Portabilidades\s*(\d*)\s*Renegociação\s*(\d+)/;
+    const regexQuantidade = /Novo\s*(\d+)[\s\S]*Aditivo\s*(\d+)[\s\S]*Portabilidades\s*(\d*)[\s\S]*Renegociação\s*(\d+)/;
+
 
     // Match dos valores no texto
     const vtmeMatch = texto.match(regexVtme);
@@ -99,20 +106,53 @@ export class EmailComponent {
     }
 
     if (quantidadeMatch) {
-        quantidade = parseInt(quantidadeMatch[1]);
-    }
+      console.log("Novo: ", quantidadeMatch[1]);
+      console.log("Aditivo: ", quantidadeMatch[2]);
+      console.log("Portabilidades: ", quantidadeMatch[3] || "Não encontrada");
+      console.log("Renegociação: ", quantidadeMatch[4]);
 
+      if (parseInt(quantidadeMatch[1]) > 0) {  // Se Novo for maior que 0
+          quantidade = parseInt(quantidadeMatch[1]);
+      } else if (parseInt(quantidadeMatch[2]) > 0) {  // Se Aditivo for maior que 0
+          quantidade = parseInt(quantidadeMatch[2]);
+      } else if (parseInt(quantidadeMatch[4]) > 0) {  // Se Renegociação for maior que 0
+          quantidade = parseInt(quantidadeMatch[4]);
+      }
+
+      console.log("Quantidade final: ", quantidade);
+
+  } else {
+      console.log("Quantidade não encontrada");
+  }
     // Retornando os dados extraídos
-    return {
-        vtme: vtmeMatch ? vtmeMatch[1] : 'Não encontrado',
-        cliente: nomeClienteMatch ? nomeClienteMatch[1].trim() : 'Não encontrado',  // Nome do cliente
-        consultor: consultorMatch ? consultorMatch[1] : 'Não encontrado',  // Nome do consultor
-        tipo: tipoCliente,  // Tipo de cliente (Novo, Aditivo ou Renegociação)
-        cnpj: cnpjMatch ? cnpjMatch[1] : 'Não encontrado',  // CNPJ
-        quantidade: quantidade,  // Quantidade de acessos
-        valor: valorPedido  // Valor do pedido
-    };
+    const dadosExtraidos = {
+      vtme: vtmeMatch ? vtmeMatch[1] : 'Não encontrado',
+      cliente: nomeClienteMatch ? nomeClienteMatch[1].trim() : 'Não encontrado',
+      consultor: consultorMatch ? consultorMatch[1] : 'Não encontrado',
+      tipo: tipoCliente,
+      cnpj: cnpjMatch ? cnpjMatch[1] : 'Não encontrado',
+      quantidade: quantidade,
+      valor: valorPedido
+  };
+
+  // Armazenando os dados extraídos no localStorage como JSON
+  localStorage.setItem('dadosCliente', JSON.stringify(this.listVTME));
+  console.log(localStorage.getItem('dadosCliente'))
+
+  // Retornando os dados extraídos
+  return dadosExtraidos;
+}
+adicionarNoLocalStorage(novoItem: InterfaceEmailPadrao) {
+
+  this.listVTME.push(novoItem);
+ localStorage.setItem('dadosCliente', JSON.stringify(this.listVTME))
+
+ console.log('Dados no local storage', this.listVTME)
 }
 
 
+
+apagar(){
+  this.listVTME = []
+}
 }
