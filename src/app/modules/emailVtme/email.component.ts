@@ -151,8 +151,4 @@ adicionarNoLocalStorage(novoItem: InterfaceEmailPadrao) {
 }
 
 
-
-apagar(){
-  this.listVTME = []
-}
 }

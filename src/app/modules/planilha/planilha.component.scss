@@ -1,0 +1,49 @@
+
+
+:host{
+  #main{
+    font-family: 'Helvetica';
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 2px solid black;
+    background-color: white;
+
+    p{
+      margin-left:50px
+  }
+
+  }
+
+  #relatorio {
+    width: 100%;
+    border-collapse: collapse; /* Remove o espaçamento entre as células */
+    margin-top: 20px;
+  }
+
+  #relatorio th,
+  #relatorio td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd; /* Borda entre as células */
+  }
+
+  #relatorio tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alterna a cor das linhas para melhorar a leitura */
+  }
+
+  #relatorio th {
+    background-color: #4CAF50; /* Cor do cabeçalho */
+    color: white;
+  }
+
+  #relatorio tbody {
+      background-color: var(--blue);
+  }
+  .planilha {
+    background-color: #f4f4f4;
+  }
+
+  img{
+    padding:50px;
+  }
+}

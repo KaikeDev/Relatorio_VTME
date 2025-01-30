@@ -6,12 +6,11 @@ import { EmailPadraoComponent } from './modules/email-padrao/email-padrao.compon
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, EmailPadraoComponent],
+  imports: [RouterOutlet],
  template:`
  <router-outlet />
 
 
- <app-email-padrao/>
 
  `
 })
