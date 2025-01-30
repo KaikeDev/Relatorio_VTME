@@ -1,1 +1,32 @@
-<p>planilha works!</p>
+<div id="main">
+
+  <div >
+    <table *ngIf="dadosCliente.length > 0" id="relatorio">
+      <thead>
+        <tr class="planilha">
+          <th>Nome</th>
+          <th>Cnpj</th>
+          <th>Valor</th>
+          <th>Quantidade</th>
+          <th>Tipo</th>
+          <th>Consultor</th>
+          <th>Vtme</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let registro of dadosCliente">
+          <td>{{ registro.cliente }}</td>
+          <td>{{ registro.cnpj }}</td>
+          <td>{{registro.valor}}</td>
+          <td>{{registro.quantidade}}</td>
+          <td>{{ registro.tipo }}</td>
+          <td>{{ registro.consultor }}</td>
+          <td>{{ registro.vtme }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a [routerLink]="['/']"> <img src="assets/excel/seta.png" alt="Seta para voltar a página principal"></a>
+
+</div>
