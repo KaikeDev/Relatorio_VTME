@@ -13,6 +13,8 @@ export class PlanilhaComponent {
 
   public dadosCliente: any[] = [];
 
+  public data = new Date();
+
 
   public getDadosCliente() {
     const dadosCliente = localStorage.getItem('dadosCliente');
