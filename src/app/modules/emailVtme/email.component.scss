@@ -13,8 +13,8 @@
   width: 1000px;
   height: 300px;
   word-wrap: break-word;
-  border: 2px solid black;
   margin: 20px 0;
+  background-color: var(--gray);
 
   height:calc(80dvh - 130px - 90px);
 
@@ -35,20 +35,21 @@
 
 }
 
-
-
-
 .input-label {
   height: 40px;
-  width: 70%;
+  width: 150px;
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 5px;
-  border-radius: 50px;
   margin-bottom: 20px;
-  padding: 5px;
+  padding: 10px;
   background-color: var(--primary);
+  font-size: 14px;
+  text-align: center;
+  justify-content: center;
+
 }
 
 .input-label #label-text {
@@ -61,6 +62,8 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  color: white;
+
 }
 
 .input-label #formata img {

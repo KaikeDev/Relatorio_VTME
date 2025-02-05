@@ -31,18 +31,20 @@ export class EmailPadraoComponent {
    }
 
    copiar(){
-    const tabela = document.getElementById('relatorio');
-    if (tabela) {
-      const range = document.createRange();
-      range.selectNodeContents(tabela);
-      const selection = window.getSelection();
-      if (selection) {
-        selection.removeAllRanges();
-        selection.addRange(range);
-        document.execCommand('copy');
-        alert('Texto copiado com sucesso!');
-      }
-    }
+    const paragrafos = document.querySelectorAll('p'); // Seleciona todos os elementos <p>
+
+    // Cria um intervalo de seleção para cada parágrafo
+    paragrafos.forEach(paragrafo => {
+        const range = document.createRange();
+        range.selectNodeContents(paragrafo);
+
+        const selection = window.getSelection();
+        if (selection) {
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand('copy');
+        }
+    })
    }
 
 
