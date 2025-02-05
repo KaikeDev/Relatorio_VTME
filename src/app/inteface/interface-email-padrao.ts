@@ -5,6 +5,7 @@ export interface InterfaceEmailPadrao {
   cnpj: string,
    tipo: string,
    quantidade: number,
-   valor:number
+   valor:number,
+   data:Date
 
 }

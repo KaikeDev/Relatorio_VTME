@@ -1,12 +1,11 @@
-<app-header/>
-
+<app-header />
 
 <div class="email">
   <app-email (outputAddtexto)="handleTexto($event)"></app-email>
 
   <div *ngIf="textoFormatado.length > 0" class="main">
     <p *ngFor="let item of textoFormatado">
-      <strong>PEDIDO NOVO</strong> <br><br>
+      <strong>PEDIDO NOVO</strong> <br /><br />
       <strong>PARCEIRO/CONSULTOR:</strong> {{ item.consultor }}<br />
       <strong>RAZÃO SOCIAL:</strong> {{ item.cliente }}<br />
       <strong>N° VTME:</strong> {{ item.vtme }}<br />
@@ -14,18 +13,17 @@
       <strong>NEGOCIAÇÃO:</strong> {{ item.tipo }}<br />
       <strong>RADAR:</strong>
 
-      <br> <br>
-      
+      <br />
+      <br />
 
       <strong>OBS: </strong>
-
-
     </p>
+
+    <button (click)="copiar()" id="btn_copiar">Copiar Texto</button>
   </div>
 </div>
 
 <div>
-
   <div>
     <table *ngIf="textoFormatado.length > 0" id="relatorio">
       <thead>
@@ -37,15 +35,14 @@
           <th>Tipo</th>
           <th>Consultor</th>
           <th>Vtme</th>
-         
         </tr>
       </thead>
       <tbody>
-        <tr  *ngFor="let registro of textoFormatado">
+        <tr *ngFor="let registro of textoFormatado">
           <td>{{ registro.cliente }}</td>
           <td>{{ registro.cnpj }}</td>
-          <td>{{registro.valor}}</td>
-          <td>{{registro.quantidade}}</td>
+          <td>{{ registro.valor }}</td>
+          <td>{{ registro.quantidade }}</td>
           <td>{{ registro.tipo }}</td>
           <td>{{ registro.consultor }}</td>
           <td>{{ registro.vtme }}</td>
@@ -53,5 +50,4 @@
       </tbody>
     </table>
   </div>
-
 </div>

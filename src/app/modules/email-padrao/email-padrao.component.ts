@@ -26,8 +26,23 @@ export class EmailPadraoComponent {
 
     // Adiciona o novo objeto ao final da lista
     this.textoFormatado.push(event);
-    
 
+
+   }
+
+   copiar(){
+    const tabela = document.getElementById('relatorio');
+    if (tabela) {
+      const range = document.createRange();
+      range.selectNodeContents(tabela);
+      const selection = window.getSelection();
+      if (selection) {
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        alert('Texto copiado com sucesso!');
+      }
+    }
    }
 
 

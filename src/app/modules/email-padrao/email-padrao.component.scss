@@ -15,9 +15,11 @@
   }
 
   #relatorio {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse; /* Remove o espaçamento entre as células */
     margin-top: 20px;
+
+
   }
 
   #relatorio th,
@@ -41,5 +43,18 @@
   }
   .planilha {
     background-color: #f4f4f4;
+
+  }
+
+  #btn_copiar{
+    color: #FFFFFF;
+    padding: 5px;
+    background-color: var(--primary);
+    width: 100px;
+    border-radius: 4px;
+    cursor: pointer;
+  position: relative;
+  left: 902px;
+
   }
 }

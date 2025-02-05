@@ -19,6 +19,8 @@ export class EmailComponent {
 
   @Output() public outputAddtexto = new EventEmitter<InterfaceEmailPadrao>();
 
+  public dataPedido = new Date();
+
   public listVTME: Array<InterfaceEmailPadrao> = JSON.parse(
     localStorage.getItem('dadosCliente') || '[]'
   );
@@ -137,6 +139,7 @@ export class EmailComponent {
       cnpj: cnpjMatch ? cnpjMatch[1] : 'Não encontrado',
       quantidade: quantidade,
       valor: valorPedido,
+      data: this.dataPedido
     };
 
     // Armazenando os dados extraídos no localStorage como JSON
@@ -156,6 +159,7 @@ export class EmailComponent {
       console.log('O VTME já existe. Não será adicionado novamente.');
     } else {
       // Se não existe, adicionar o novo item
+
       this.listVTME.push(novoItem);
       localStorage.setItem('dadosCliente', JSON.stringify(this.listVTME));
       console.log('Novo item adicionado ao localStorage:', novoItem);
