@@ -1,16 +1,26 @@
-.container{
-
+.container {
   width: 350px;
 
   padding: 0 20px;
 
   position: relative;
+
 }
 
-@media (max-width: 750px){
-  .container{
-    width: 100%;
+/* Responsividade para telas pequenas (até 480px) */
+@media (max-width: 480px) {
+  .container {
+    width: 100%;  /* Garante que a largura da .container seja 100% */
+    padding: 0 15px; /* Ajusta o padding se necessário */
+    
   }
+}
 
+/* Responsividade para telas médias (até 768px) */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 20px; /* Ajuste conforme necessidade */
 
+  }
 }
