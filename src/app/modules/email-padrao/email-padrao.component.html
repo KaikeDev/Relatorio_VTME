@@ -3,6 +3,7 @@
 <div class="email">
   <app-email (outputAddtexto)="handleTexto($event)"></app-email>
 
+
   <div *ngIf="textoFormatado.length > 0" class="main">
     <p *ngFor="let item of textoFormatado">
       <strong>PEDIDO NOVO</strong> <br /><br />
