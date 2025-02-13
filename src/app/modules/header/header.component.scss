@@ -28,4 +28,17 @@
   header a img {
     height: 40px; /* Ajuste o tamanho da imagem conforme necessário */
   }
+
+  @media (max-width: 480px) {
+    .container {
+      width: 100%;  /* Garante que a largura da .container seja 100% */
+      padding: 0 15px; /* Ajusta o padding se necessário */
+
+      h1{
+        font-size:15px;
+        text-align: left;
+      }
+    
+    }
+}
 }

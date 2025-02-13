@@ -86,6 +86,21 @@
   border-radius: 5px;
 }
 
+@media (max-width: 480px) {
+  #inputVtme {
+
+    width: 95%;
+
+  }
+
+}
+@media (max-width: 834px) {
+  #inputVtme {
+
+    width: 100%;
+
+  }
+
 }
 
-
+}
