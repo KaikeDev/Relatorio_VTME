@@ -10,9 +10,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SearchComponent {
 
 
-  @Output() public emmitSearch: EventEmitter<string> = new EventEmitter();
+  // Componente de busca (app-search)
+@Output() public emmitSearch: EventEmitter<{ field: string, value: string }> = new EventEmitter();
 
-  public search(value: string){
-   this.emmitSearch.emit(value);
-  }
+public emitSearch(value: string, field: string) {
+  this.emmitSearch.emit({ field, value });
+}
+
 }

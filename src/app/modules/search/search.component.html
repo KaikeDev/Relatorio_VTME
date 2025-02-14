@@ -1,12 +1,12 @@
 <thead>
   <tr class="planilha">
-    <th><input  #input (keyup)="search(input.value)" placeholder="Filtrar por nome" /></th>
-    <th><input  #input (keyup)="search(input.value)" placeholder="Filtrar por CNPJ" /></th>
-    <th><input  #input (keyup)="search(input.value)" placeholder="Filtrar por valor" /></th>
-    <th><input  #input (keyup)="search(input.value)" placeholder="Filtrar por quantidade" /></th>
-    <th><input  #input (keyup)="search(input.value)" placeholder="Filtrar por tipo" /></th>
-    <th><input  #input (keyup)="search(input.value)" placeholder="Filtrar por consultor" /></th>
-    <th><input  #input (keyup)="search(input.value)" placeholder="Filtrar por vtme" /></th>
-    <th><input  #input (keyup)="search(input.value)" placeholder="Filtrar por data" /></th>
+    <th><input (keyup)="emitSearch(inputNome.value, 'nome')" #inputNome placeholder="Filtrar por nome" /></th>
+    <th><input (keyup)="emitSearch(inputCNPJ.value, 'cnpj')" #inputCNPJ placeholder="Filtrar por CNPJ" /></th>
+    <th><input (keyup)="emitSearch(inputValor.value, 'valor')" #inputValor placeholder="Filtrar por valor" /></th>
+    <th><input (keyup)="emitSearch(inputQuantidade.value, 'quantidade')" #inputQuantidade placeholder="Filtrar por quantidade" /></th>
+    <th><input (keyup)="emitSearch(inputTipo.value, 'tipo')" #inputTipo placeholder="Filtrar por tipo" /></th>
+    <th><input (keyup)="emitSearch(inputConsultor.value, 'consultor')" #inputConsultor placeholder="Filtrar por consultor" /></th>
+    <th><input (keyup)="emitSearch(inputVtme.value, 'vtme')" #inputVtme placeholder="Filtrar por vtme" /></th>
+    <th><input (keyup)="emitSearch(inputData.value, 'data')" #inputData placeholder="Filtrar por data" /></th>
   </tr>
 </thead>
