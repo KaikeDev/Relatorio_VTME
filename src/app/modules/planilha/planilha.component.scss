@@ -1,7 +1,5 @@
-
-
-:host{
-  #main{
+:host {
+  #main {
     font-family: 'Helvetica';
     margin-left: 50px;
     margin-right: 50px;
@@ -9,15 +7,40 @@
     border: 2px solid black;
     background-color: white;
 
-    p{
-      margin-left:50px
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha à esquerda para evitar que fique centralizado */
+    box-sizing: border-box; /* Garante que o padding não ultrapasse a largura da div */
   }
 
+  .filtro {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os inputs quebrem para a próxima linha */
+    gap: 10px;
+    justify-content: flex-start;
+    width: 100%; /* Garante que a largura ocupe todo o espaço disponível */
+    max-width: 100%; /* Garante que não ultrapasse a largura da div */
   }
 
+  .filtro input {
+    flex: 1 1 200px; /* Cada input pode crescer e encolher com um tamanho mínimo de 200px */
+    min-width: 150px; /* Tamanho mínimo de cada input */
+    max-width: 100%; /* Impede que o input ultrapasse a largura da div pai */
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box; /* Evita que o padding afete o tamanho do input */
+  }
+
+  p {
+    margin-left: 50px;
+  }
+
+  /* Estilos para a tabela */
   #relatorio {
-    width: 100%;
-    border-collapse: collapse; /* Remove o espaçamento entre as células */
+    width: 100%; /* Garante que a tabela ocupe 100% da largura da div */
+
+
+    border-collapse: collapse;
     margin-top: 20px;
   }
 
@@ -25,23 +48,31 @@
   #relatorio td {
     padding: 12px;
     text-align: center;
-    border-top: 1px solid #ddd; /* Borda entre as células */
-
+    border-top: 1px solid #ddd;
   }
 
   #relatorio th {
-    background-color: #2d782f; /* Cor do cabeçalho */
+    background-color: #2d782f;
     color: white;
   }
 
   #relatorio tbody {
-      background-color: white;
+    background-color: white;
   }
 
-
-  img{
-    padding:50px;
+  img {
+    padding: 50px;
   }
 
+  @media (max-width: 480px) {
+    .filtro input {
+      flex: 1 1 45%; /* Cada input ocupará 45% do espaço em telas pequenas */
+    }
+  }
 
+  @media (max-width: 834px) {
+    .filtro input {
+      flex: 1 1 48%; /* Ajusta os inputs para caberem em telas médias */
+    }
+  }
 }
