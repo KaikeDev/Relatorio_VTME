@@ -1,0 +1,33 @@
+:host {
+  tr {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os inputs quebrem para a próxima linha, caso necessário */
+    justify-content: flex-start; /* Alinha os inputs à esquerda */
+  }
+
+  input {
+    padding: 10px;
+    background-color: var(--gray);
+    border-radius: 10px;
+    margin: 10px;
+    width: 150px; /* Garante que os inputs ocupem 100% da largura disponível */
+    box-sizing: border-box; /* Garante que o padding não afete a largura total do input */
+  }
+
+  input::placeholder {
+    color: black;
+  }
+
+  /* Responsividade */
+  @media (min-width: 480px) and (max-width: 834px) {
+    input {
+      width: 48%; /* Os inputs ocuparão 48% da largura em telas médias */
+    }
+  }
+
+  @media (max-width: 480px) {
+    input {
+      width: 100%; /* Em telas pequenas, os inputs ocuparão 100% da largura */
+    }
+  }
+}

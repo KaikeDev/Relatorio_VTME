@@ -1,7 +1,7 @@
 <div id="main">
 
   <div>
-    <app-search (emmitSearch)="getSearch($event)"></app-search>
+    <app-search class="filtro" (emmitSearch)="getSearch($event)"></app-search>
     <table *ngIf="dadosFiltrados.length > 0; else noResults" id="relatorio">
       <thead>
 
@@ -37,22 +37,4 @@
   <a [routerLink]="['/']"> <img src="assets/excel/seta.png" alt="Seta para voltar a página principal"></a>
 
 </div>
-
-
-<!--
-Campo de busca
-<app-search (emmitSearch)="getSearch($event)"></app-search>
-
-Resultados filtrados
-<div *ngIf="dadosFiltrados.length > 0; else noResults">
-  <div *ngFor="let item of dadosFiltrados">
-    <p>{{ item.cliente }} - {{ item.cnpj }} - {{ item.tipo }}</p>
-  </div>
-</div>
-
-<ng-template #noResults>
-  <p>Nenhum cliente encontrado</p>
-</ng-template>
-
--->
 
