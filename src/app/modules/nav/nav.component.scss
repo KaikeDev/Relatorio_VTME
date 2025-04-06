@@ -1,0 +1,59 @@
+:host{
+/* menu.component.css */
+.menu-container {
+  position: relative;
+}
+
+.menu-icon {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+  z-index: 2;
+  position: relative;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: -250px; /* começa fora da tela */
+  width: 250px;
+  height: 100vh;
+  background-color: var(--nav);
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  padding: 20px;
+  z-index: 1;
+}
+
+nav.open {
+  left: 0; /* desliza para dentro */
+  box-shadow: 0 19px 38px rgba(0, 0, 0, .3), 0 15px 12px rgba(0, 0, 0, .22);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 15px 0;
+
+}
+
+nav ul li a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+img{
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  padding: 20px;
+  z-index: 1;
+}
+
+}

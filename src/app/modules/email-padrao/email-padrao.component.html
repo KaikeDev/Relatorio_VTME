@@ -1,31 +1,28 @@
-<app-header />
 
-<div class="email">
-  <app-email (outputAddtexto)="handleTexto($event)"></app-email>
-  <div *ngIf="textoFormatado.length > 0" class="main">
-    <p *ngFor="let item of textoFormatado">
-      <strong>PEDIDO NOVO</strong> <br /><br />
-      <strong>PARCEIRO/CONSULTOR:</strong> {{ item.consultor }}<br />
-      <strong>RAZÃO SOCIAL:</strong> {{ item.cliente }}<br />
-      <strong>N° VTME:</strong> {{ item.vtme }}<br />
-      <strong>CNPJ:</strong> {{ item.cnpj }}<br />
-      <strong>NEGOCIAÇÃO:</strong> {{ item.tipo }}<br />
-      <strong>RADAR:</strong>
-
-      <br />
-      <br />
-
-      <strong>OBS: </strong>
-    </p>
-
-    <button (click)="copiar()" id="btn_copiar"><strong>Copiar texto</strong></button>
+<ng-container *ngIf="textoFormatado as dados">
+  <div class="main-email-padrao">
+    <div >
+      <div id="p-email-padrao">
+        <div><strong>PEDIDO NOVO</strong></div><br />
+        <div><strong>PARCEIRO/CONSULTOR:</strong> {{ dados.consultor }}</div>
+        <div><strong>RAZÃO SOCIAL:</strong> {{ dados.cliente }}</div>
+        <div><strong>N° VTME:</strong> {{ dados.vtme }}</div>
+        <div><strong>CNPJ:</strong> {{ dados.cnpj }}</div>
+        <div><strong>NEGOCIAÇÃO:</strong> {{ dados.tipo }}</div>
+        <div><strong>RADAR:</strong></div>
+        <br />
+        <div><strong>OBS:</strong></div>
+      </div>
+    </div>
+    <button (click)="copiar()">Copiar</button>
   </div>
+</ng-container>
 
-</div>
+
 
 <div>
   <div>
-    <table *ngIf="textoFormatado.length > 0" id="relatorio">
+    <table *ngIf="textoFormatado" id="relatorio">
       <thead>
         <tr class="planilha">
           <th>Nome</th>
@@ -38,14 +35,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let registro of textoFormatado">
-          <td>{{ registro.cliente }}</td>
-          <td>{{ registro.cnpj }}</td>
-          <td>{{ registro.valor }}</td>
-          <td>{{ registro.quantidade }}</td>
-          <td>{{ registro.tipo }}</td>
-          <td>{{ registro.consultor }}</td>
-          <td>{{ registro.vtme }}</td>
+        <tr>
+          <td>{{ textoFormatado.cliente }}</td>
+          <td>{{ textoFormatado.cnpj }}</td>
+          <td>{{ textoFormatado.valor }}</td>
+          <td>{{ textoFormatado.quantidade }}</td>
+          <td>{{ textoFormatado.tipo }}</td>
+          <td>{{ textoFormatado.consultor }}</td>
+          <td>{{ textoFormatado.vtme }}</td>
         </tr>
       </tbody>
     </table>

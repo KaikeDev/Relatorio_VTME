@@ -1,0 +1,21 @@
+<div class="menu-container">
+
+   <img *ngIf="!menuAberto"
+       src="assets/botoes/menu-icon.svg"
+       alt="Ícone menu"
+       class="menu-icon"
+       (click)="toggleMenu()" />
+
+  <nav [class.open]="menuAberto">
+
+     <img *ngIf="menuAberto"
+         src="assets/botoes/close.svg"
+         alt="Ícone fechar"
+         class="menu-icon"
+         (click)="toggleMenu()" />
+
+    <ul>
+      <li><a routerLink="/cadastro">Cadastro</a></li>
+    </ul>
+  </nav>
+</div>

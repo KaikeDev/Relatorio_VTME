@@ -6,13 +6,16 @@ import {
   inject,
   Output,
 } from '@angular/core';
+import { TextoService } from '../../service/texto.service';
+import { EmailPadraoComponent } from '../email-padrao/email-padrao.component';
 
 @Component({
   selector: 'app-email',
   standalone: true,
-  imports: [],
+  imports: [EmailPadraoComponent],
   templateUrl: './email.component.html',
-  styleUrl: './email.component.scss',
+  styleUrls: ['./email.component.scss','../email-padrao/email-padrao.component.scss']
+
 })
 export class EmailComponent {
   #cdr = inject(ChangeDetectorRef);
@@ -25,17 +28,23 @@ export class EmailComponent {
     localStorage.getItem('dadosCliente') || '[]'
   );
 
+  constructor(private textoService: TextoService, private cdr: ChangeDetectorRef) {}
+
+
   addTexto(value: string) {
     if (value) {
-      // Extrai os dados do texto
       const dadosExtraidos = this.extrairDadosDoTexto(value);
 
       this.adicionarNoLocalStorage(dadosExtraidos);
 
-      // Emite o evento com os dados extraídos
-      this.#cdr.detectChanges();
-
+      // Atualiza o serviço com os dados
+      this.textoService.setTexto(dadosExtraidos);
       this.outputAddtexto.emit(dadosExtraidos);
+
+      // Atualiza o componente se necessário
+      this.cdr.detectChanges();
+
+
     }
   }
 
