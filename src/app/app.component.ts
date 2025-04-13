@@ -13,7 +13,7 @@ import { FooterComponent } from "./modules/footer/footer.component";
 
  <router-outlet />
 
- <app-footer/>
+ <app-footer />
 
 
  `

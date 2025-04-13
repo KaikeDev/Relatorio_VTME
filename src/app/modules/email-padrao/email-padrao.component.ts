@@ -8,48 +8,23 @@ import { TextoService } from '../../service/texto.service';
 @Component({
   selector: 'app-email-padrao',
   standalone: true,
-  imports: [CommonModule, ],
+  imports: [CommonModule],
   templateUrl: './email-padrao.component.html',
-  styleUrls:[ './email-padrao.component.scss'],
-  encapsulation: ViewEncapsulation.None
-
-
+  styleUrls: ['./email-padrao.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class EmailPadraoComponent {
-
-  //@Input() public textoFormatado: InterfaceEmailPadrao[] = []
-
-
-  textoFormatado: InterfaceEmailPadrao | null =  null;
+  textoFormatado: InterfaceEmailPadrao | null = null;
 
   constructor(private textoService: TextoService) {}
 
   ngOnInit() {
-    this.textoService.textoFormatado$.subscribe(dados => {
+    this.textoService.textoFormatado$.subscribe((dados) => {
       this.textoFormatado = dados;
-
     });
   }
 
-   // Função que será chamada ao receber o evento
-
-   /*
-   handleTexto(event: InterfaceEmailPadrao) {
-     // Adiciona o novo objeto ao array
-
-     if (this.textoFormatado.length > 0) {
-      this.textoFormatado.pop();  // Remove o último item da lista
-    }
-
-    // Adiciona o novo objeto ao final da lista
-    this.textoFormatado.push(event);
-
-
-   }
-
-   */
-
-   copiar(){
+  copiar() {
     const elemento = document.getElementById('p-email-padrao');
 
     if (elemento) {
@@ -63,11 +38,6 @@ export class EmailPadraoComponent {
       document.execCommand('copy');
 
       selection?.removeAllRanges(); // opcional: limpa a seleção após copiar
-   
     }
-   }
-
-
-
-
+  }
 }

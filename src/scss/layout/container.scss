@@ -7,12 +7,14 @@
 
 }
 
+
+
 /* Responsividade para telas pequenas (até 480px) */
 @media (max-width: 480px) {
   .container {
     width: 100%;  /* Garante que a largura da .container seja 100% */
     padding: 0 15px; /* Ajusta o padding se necessário */
-    
+
   }
 }
 

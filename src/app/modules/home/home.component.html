@@ -2,3 +2,50 @@
 
 
 <app-nav/>
+
+<main>
+  <h1>Pedidos do dia</h1>
+  <div id="main">
+
+    <div>
+      <app-search class="filtro" (emmitSearch)="getSearch($event)"></app-search>
+      <table *ngIf="dadosFiltrados.length > 0; else noResults" id="relatorio">
+        <thead>
+
+          <tr class="planilha">
+            <th>Nome</th>
+            <th>Cnpj</th>
+            <th>Valor</th>
+            <th>Quantidade</th>
+            <th>Tipo</th>
+            <th>Consultor</th>
+            <th>Vtme</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let registro of dadosFiltrados">
+
+              <td>{{ registro.cliente }}</td>
+              <td>{{ registro.cnpj }}</td>
+              <td>{{registro.valor}}</td>
+              <td>{{registro.quantidade}}</td>
+              <td>{{ registro.tipo }}</td>
+              <td>{{ registro.consultor }}</td>
+              <td>{{ registro.vtme }}</td>
+              <td>{{registro.data | date:'dd/MM'}}</td>
+
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #noResults>
+      <p>Nenhum cliente encontrado</p>
+    </ng-template>
+
+
+  </div>
+
+
+</main>

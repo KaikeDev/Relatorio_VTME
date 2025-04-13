@@ -8,14 +8,22 @@
         <div><strong>RAZÃO SOCIAL:</strong> {{ dados.cliente }}</div>
         <div><strong>N° VTME:</strong> {{ dados.vtme }}</div>
         <div><strong>CNPJ:</strong> {{ dados.cnpj }}</div>
-        <div><strong>NEGOCIAÇÃO:</strong> {{ dados.tipo }}</div>
+        <div><strong>NEGOCIAÇÃO:</strong> {{dados.quantidade}} {{ dados.tipo }}</div>
         <div><strong>RADAR:</strong></div>
         <br />
-        <div><strong>OBS:</strong></div>
+
+        <div *ngIf="dados.tipo === 'Renegociação'; else outroTipo">
+          <strong>OBS: </strong> GERAR TERMOS
+        </div>
+
+        <ng-template #outroTipo>
+          <strong>OBS: </strong>
+        </ng-template>
+
       </div>
     </div>
-    <button (click)="copiar()">Copiar</button>
   </div>
+  <button (click)="copiar()" class="copiar">Copiar</button>
 </ng-container>
 
 

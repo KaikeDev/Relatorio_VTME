@@ -40,3 +40,24 @@ ul{
   padding: 0;
   margin: 0;
 }
+
+.container{
+  min-height: 85vh;
+}
+
+
+button{
+  color: #FFFFFF;
+  padding: 5px;
+  background-color: var(--primary);
+  width: 100px;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+  cursor: pointer;
+position: relative;
+
+}
+
+.copiar{
+  left: 902px;
+}
