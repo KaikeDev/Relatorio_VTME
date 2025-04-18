@@ -16,6 +16,11 @@
       box-sizing: border-box; /* Garante que o padding não ultrapasse a largura da div */
     }
 
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
     .filtro {
       display: flex;
       flex-wrap: wrap; /* Permite que os inputs quebrem para a próxima linha */
@@ -48,6 +53,7 @@
       width: 100%; /* Garante que a tabela ocupe 100% da largura da div */
 
      margin: 20px;
+     min-width: 800px;
 
       border-collapse: collapse;
       margin-top: 20px;
@@ -56,7 +62,7 @@
     #relatorio th,
     #relatorio td {
       padding: 12px;
-      text-align: center;
+      text-align: left;
       border-top: 1px solid #ddd;
     }
 
@@ -71,16 +77,15 @@
 
 
 
-    @media (max-width: 480px) {
-      .filtro input {
-        flex: 1 1 45%; /* Cada input ocupará 45% do espaço em telas pequenas */
-      }
-    }
+      /* Responsividade */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.5rem;
+        }
 
-    @media (max-width: 834px) {
-      .filtro input {
-        flex: 1 1 48%; /* Ajusta os inputs para caberem em telas médias */
+        #main {
+          padding: 10px;
+        }
       }
-    }
   }
 

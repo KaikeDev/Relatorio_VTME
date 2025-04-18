@@ -1,78 +1,84 @@
 :host {
-  #main {
-    font-family: 'Helvetica';
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 10px;
-    border: 2px solid black;
-    background-color: white;
+  display: block; /* Garante que o host ocupe um bloco completo */
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinha à esquerda para evitar que fique centralizado */
-    box-sizing: border-box; /* Garante que o padding não ultrapasse a largura da div */
-  }
+/* Estilos gerais */
+#main {
+  font-family: 'Helvetica';
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 10px;
+  border: 2px solid black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
 
-  .filtro {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os inputs quebrem para a próxima linha */
-    gap: 10px;
-    justify-content: flex-start;
-    width: 100%; /* Garante que a largura ocupe todo o espaço disponível */
-    max-width: 100%; /* Garante que não ultrapasse a largura da div */
-  }
+/* Responsividade da tabela */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
 
+/* Filtro */
+.filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+}
+
+.filtro input {
+  flex: 1 1 200px;
+  min-width: 150px;
+  max-width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+/* Estilos para a tabela */
+#relatorio {
+  width: 100%;
+  min-width: 800px; /* AQUI - força a tabela a ter largura mínima */
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#relatorio th,
+#relatorio td {
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+#relatorio th {
+  background-color: #2d782f;
+  color: white;
+}
+
+#relatorio tbody {
+  background-color: white;
+}
+
+/* Estilo para imagem */
+img {
+  padding: 50px;
+}
+
+/* Responsividade inputs */
+@media (max-width: 480px) {
   .filtro input {
-    flex: 1 1 200px; /* Cada input pode crescer e encolher com um tamanho mínimo de 200px */
-    min-width: 150px; /* Tamanho mínimo de cada input */
-    max-width: 100%; /* Impede que o input ultrapasse a largura da div pai */
-    padding: 8px;
-    margin: 5px 0;
-    box-sizing: border-box; /* Evita que o padding afete o tamanho do input */
+    flex: 1 1 45%;
   }
+}
 
-  p {
-    margin-left: 50px;
-  }
-
-  /* Estilos para a tabela */
-  #relatorio {
-    width: 100%; /* Garante que a tabela ocupe 100% da largura da div */
-
-
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-
-  #relatorio th,
-  #relatorio td {
-    padding: 12px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-  }
-
-  #relatorio th {
-    background-color: #2d782f;
-    color: white;
-  }
-
-  #relatorio tbody {
-    background-color: white;
-  }
-
-  img {
-    padding: 50px;
-  }
-
-  @media (max-width: 480px) {
-    .filtro input {
-      flex: 1 1 45%; /* Cada input ocupará 45% do espaço em telas pequenas */
-    }
-  }
-
-  @media (max-width: 834px) {
-    .filtro input {
-      flex: 1 1 48%; /* Ajusta os inputs para caberem em telas médias */
-    }
+@media (max-width: 834px) {
+  .filtro input {
+    flex: 1 1 48%;
   }
 }

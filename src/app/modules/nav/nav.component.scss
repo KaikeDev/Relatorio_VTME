@@ -16,6 +16,18 @@
   position: relative;
 }
 
+.menu-icon-close{
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+  z-index: 2;
+  position: relative;
+  left: 180px;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -37,10 +49,15 @@ nav.open {
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 30px;
 }
 
 nav ul li {
   margin: 15px 0;
+  display: flex;
+  align-items: center; /* Alinha verticalmente no centro */
+  gap: 8px; /* Espaço entre a imagem e o link */
+
 
 }
 
@@ -48,13 +65,17 @@ nav ul li a {
   color: var(--primary);
   text-decoration: none;
   font-size: 18px;
+  text-decoration: none; /* Se quiser tirar o sublinhado */
+  color: black; /* Cor do link */
+  font-size: 16px; /* Ajusta o tamanho da fonte */
+
 }
 
 img{
-  overflow-y: auto;
-  transition: left 0.3s ease;
-  padding: 20px;
-  z-index: 1;
+
+  width: 24px; /* ou o tamanho que quiser */
+  height: auto;
+
 }
 
 

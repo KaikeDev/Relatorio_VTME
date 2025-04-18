@@ -16,18 +16,6 @@
     flex-grow: 1; /* Faz o título crescer e ocupar o máximo de espaço possível */
   }
 
-  header a {
-    background: none;
-    border: none;
-    position: absolute; /* Posiciona o botão de forma absoluta */
-    right: 100px; /* Afasta o botão da borda direita */
-    height: auto;
-    cursor: pointer;
-  }
-
-  header a img {
-    height: 40px; /* Ajuste o tamanho da imagem conforme necessário */
-  }
 
   @media (max-width: 480px) {
     .container {
@@ -38,7 +26,7 @@
         font-size:15px;
         text-align: left;
       }
-    
+
     }
 }
 }
