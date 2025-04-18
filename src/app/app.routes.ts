@@ -3,10 +3,11 @@ import { EmailPadraoComponent } from './modules/email-padrao/email-padrao.compon
 import { PlanilhaComponent } from './modules/planilha/planilha.component';
 import { HomeComponent } from './modules/home/home.component';
 import { EmailComponent } from './modules/emailVtme/email.component';
+import { LoginComponent } from './modules/login/login.component';
 
 export const routes: Routes = [
 
-  
+  {path: 'login', component: LoginComponent},
   {path: '', component: HomeComponent},
 
 

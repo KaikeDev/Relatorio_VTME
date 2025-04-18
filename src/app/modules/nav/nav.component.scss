@@ -78,6 +78,12 @@ img{
 
 }
 
+.logout{
+  position: absolute; /* Faz o ul ficar fixo em relação ao container pai */
+  bottom: 10px; /* Distância da parte inferior da tela */
+  left: 0;
+  right: 0;
+}
 
 
 }
