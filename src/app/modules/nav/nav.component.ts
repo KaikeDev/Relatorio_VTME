@@ -5,7 +5,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [ RouterModule, NgIf],
+  imports: [ RouterModule, NgIf, RouterOutlet],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
 

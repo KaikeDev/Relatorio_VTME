@@ -3,7 +3,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { EmailPadraoComponent } from '../email-padrao/email-padrao.component';
 import { NavComponent } from '../nav/nav.component';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { SearchComponent } from '../search/search.component';
 import { CommonModule } from '@angular/common';
 
@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
     RouterLink,
     SearchComponent,
     CommonModule,
+    RouterOutlet
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -35,7 +36,7 @@ export class HomeComponent {
       const dataRegistro = new Date(registro.data);
       return (
         dataRegistro.getDate() === hoje.getDate() &&
-        dataRegistro.getMonth() === hoje.getMonth() 
+        dataRegistro.getMonth() === hoje.getMonth()
       );
     });
   }

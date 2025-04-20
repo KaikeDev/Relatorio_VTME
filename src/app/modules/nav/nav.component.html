@@ -1,39 +1,47 @@
-<div class="menu-container">
-  <img
-    *ngIf="!menuAberto"
-    src="assets/botoes/menu-icon.svg"
-    alt="Ícone menu"
-    class="menu-icon"
-    (click)="toggleMenu()"
-  />
+<div class="main-container">
 
-  <nav [class.open]="menuAberto">
+  <div class="menu-container">
     <img
-      *ngIf="menuAberto"
-      src="assets/botoes/close.svg"
-      alt="Ícone fechar"
-      class="menu-icon-close"
+      *ngIf="!menuAberto"
+      src="assets/botoes/menu-icon.svg"
+      alt="Ícone menu"
+      class="menu-icon"
       (click)="toggleMenu()"
     />
 
-    <ul>
-      <li>
-        <img src="assets/img/cadastro.png" alt="" />
-        <a routerLink="/cadastro">Cadastro</a>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <img src="assets/img/relatorio.png" alt="" />
-        <a routerLink="/planilha">Relatório</a>
-      </li>
-    </ul>
+    <nav [class.open]="menuAberto">
+      <img
+        *ngIf="menuAberto"
+        src="assets/botoes/close.svg"
+        alt="Ícone fechar"
+        class="menu-icon-close"
+        (click)="toggleMenu()"
+      />
 
-    <ul class="logout">
-      <li>
-        <img src="assets/img/logout.png" alt="" />
-        <a routerLink="/login">Logout</a>
-      </li>
-    </ul>
-  </nav>
+      <ul>
+        <li>
+          <img src="assets/img/cadastro.png" alt="" />
+          <a routerLink="cadastro">Cadastro</a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <img src="assets/img/relatorio.png" alt="" />
+          <a routerLink="planilha">Relatório</a>
+        </li>
+      </ul>
+
+      <ul class="logout">
+        <li>
+          <img src="assets/img/logout.png" alt="" />
+          <a routerLink="/login">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>

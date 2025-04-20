@@ -1,8 +1,23 @@
 :host{
 /* menu.component.css */
+
+.main-container {
+  display: flex; /* Menu e Conteúdo lado a lado */
+  height: 100vh; /* 100% da altura da tela */
+}
+
 .menu-container {
   position: relative;
-  min-height: 10vh
+  min-height: 10vh;
+  width: 100px; /* tamanho do menu */
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+.content-container {
+  flex: 1; /* ocupar todo o restante da tela */
+  padding: 20px;
+  overflow-y: auto; /* rolagem se necessário */
 }
 
 .menu-icon {

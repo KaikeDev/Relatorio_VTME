@@ -46,10 +46,11 @@ export class LoginComponent implements OnInit{
   logar() {
     const username = this.form.get('username')?.value;
     const senha = this.form.get('senha')?.value;
-   const isAuthenticated =  this.authService.authenticated(username, senha)
+   const isAuthenticated =  this.authService.login(username, senha)
+
 
    if(isAuthenticated){
-    this.router.navigate([''])
+    this.router.navigate(['nav'])
    }else{
     alert('Credenciais invalidas')
    }
