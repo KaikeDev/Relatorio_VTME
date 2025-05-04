@@ -1,5 +1,4 @@
 <div id="main">
-
   <div>
     <app-search class="filtro" (emmitSearch)="getSearch($event)"></app-search>
     <div class="table-responsive">
@@ -8,11 +7,18 @@
           <tr class="planilha">
             <th>Nome</th>
             <th>Cnpj</th>
-            <th>Valor</th>
+            <th>Vtme</th>
+            <th>N° Pedido</th>
+            <th>Radar</th>
             <th>Quantidade</th>
             <th>Tipo</th>
+            <th>Plano</th>
+            <th>Plug in</th>
+            <th>Operação</th>
+           <!-- <th>Valor</th>-->
+
             <th>Consultor</th>
-            <th>Vtme</th>
+
             <th>Data</th>
           </tr>
         </thead>
@@ -20,17 +26,21 @@
           <tr *ngFor="let registro of dadosFiltrados">
             <td>{{ registro.cliente }}</td>
             <td>{{ registro.cnpj }}</td>
-            <td>{{ registro.valor }}</td>
+            <td>{{ registro.vtme }}</td>
+            <td>-</td>
+            <td>-</td>
             <td>{{ registro.quantidade }}</td>
             <td>{{ registro.tipo }}</td>
+           <!--  <td>{{ registro.valor }}</td> -->
+           <td>-</td>
+           <td>-</td>
+           <td>-</td>
             <td>{{ registro.consultor }}</td>
-            <td>{{ registro.vtme }}</td>
             <td>{{ registro.data | date : "dd/MM" }}</td>
           </tr>
         </tbody>
       </table>
     </div>
-
   </div>
 
   <ng-template #noResults>
@@ -38,7 +48,6 @@
   </ng-template>
 </div>
 
-
-  <a [routerLink]="['/nav']"> <img src="assets/excel/seta.png" alt="Seta para voltar a página principal"></a>
-
-
+<a [routerLink]="['/nav']">
+  <img src="assets/excel/seta.png" alt="Seta para voltar a página principal"
+/></a>
